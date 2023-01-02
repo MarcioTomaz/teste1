@@ -1,7 +1,6 @@
 package com.example.teste_tecnico_.repositories;
 
 import com.example.teste_tecnico_.entities.Telefone;
-import com.teste_tecnico.testetecnico.entities.Telefone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
