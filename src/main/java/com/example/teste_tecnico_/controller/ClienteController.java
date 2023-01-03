@@ -24,9 +24,10 @@ public class ClienteController {
     @Autowired
     TelefoneService telefoneService;
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home(){
-        return "home";
+
+        return "redirect:/listClient";
     }
 
     @GetMapping("/createClient")
