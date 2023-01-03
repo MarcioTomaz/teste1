@@ -52,4 +52,8 @@ public class Cliente extends DomainEntity{
         this.nm_email = cliente.getNm_email();
         this.nm_complemento = cliente.getNm_complemento();
     }
+
+    public Cliente(Long l) {
+        setId(l);
+    }
 }

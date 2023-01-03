@@ -8,11 +8,11 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.util.Optional;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity(name = "telefone")
 public class Telefone extends DomainEntity{
 
@@ -26,5 +26,10 @@ public class Telefone extends DomainEntity{
         setId(telefone.getId());
         this.nr_telefone = telefone.getNr_telefone();
         this.cliente = telefone.getCliente();
+    }
+
+    public Telefone(String nrTelefone, Cliente client) {
+        this.nr_telefone = nrTelefone;
+        this.cliente = client;
     }
 }

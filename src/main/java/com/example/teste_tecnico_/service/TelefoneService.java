@@ -1,6 +1,8 @@
 package com.example.teste_tecnico_.service;
 
+import com.example.teste_tecnico_.entities.Cliente;
 import com.example.teste_tecnico_.entities.Telefone;
+import com.example.teste_tecnico_.repositories.ClienteRepository;
 import com.example.teste_tecnico_.repositories.TelefoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +17,18 @@ public class TelefoneService {
     @Autowired
     TelefoneRepository repository;
 
+    @Autowired
+    ClienteRepository clienteRepository;
+
     @Transactional
     public Telefone save(Telefone telefone){
 
+//        Optional<Cliente> client = clienteRepository.findById((telefone.getCliente().getId()));
+//        Telefone telefoneToSave = new Telefone(telefone.getNr_telefone(), client.get());
+//
+//        repository.save(telefoneToSave);
+//
+//        return telefoneToSave;
         if( telefone.getId() != null) {
 
             Telefone currentClient = telefone;
@@ -43,4 +54,8 @@ public class TelefoneService {
         return result;
     }
 
+    public void delete(Long id) {
+        Telefone telefone = repository.findById(id).get();
+        repository.delete(telefone);
+    }
 }
